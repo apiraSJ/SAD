@@ -30,7 +30,7 @@ const MOCK_DATA = {
 
     // Status timeline
     statusHistory: [
-      { status: 'รอตรวจสоб', timestamp: '21 ก.ย. 2567 09:30', actor: 'ระบบ', note: 'สร้างคำขอแจ้งซ่อม' },
+      { status: 'รอตรวจสอบ', timestamp: '21 ก.ย. 2567 09:30', actor: 'ระบบ', note: 'สร้างคำขอแจ้งซ่อม' },
       { status: 'รับเรื่อง', timestamp: '21 ก.ย. 2567 10:15', actor: 'ร.อ.พิเชฐ', note: 'ตรวจสอบและรับเรื่อง' },
       { status: 'กำลังซ่อม', timestamp: '21 ก.ย. 2567 11:00', actor: 'ช่างไฟฟ้า A', note: 'เริ่มดำเนินการซ่อม' },
       { status: 'ซ่อมเสร็จ', timestamp: '21 ก.ย. 2567 12:30', actor: 'ช่างไฟฟ้า A', note: 'บันทึกผลการซ่อมและปิดงาน' }

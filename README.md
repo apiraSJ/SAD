@@ -63,10 +63,12 @@ Login
 ├── js/                      # State Manager, Router, Components, 9 Pages
 ├── screens/                 # ภาพหน้าจอทั้ง 9 หน้าหลัก
 ├── report/                  # เอกสารรายงานโครงการ (SAD)
-│   ├── step1-5/             # เอกสารวิเคราะห์และออกแบบแต่ละขั้น
+│   ├── step1-5.md           # เอกสารวิเคราะห์และออกแบบแต่ละขั้น
+│   ├── DFD_0.drawio.png     # Context Diagram
+│   ├── DFD_1.drawio(.png)   # DFD Level-1 (Diagram + ภาพ export)
+│   ├── ER2cadet.xml         # ER Diagram (8 entities)
 │   ├── รายงานแผนงานโครงการ...docx
 │   └── รายงานโครงงาน...docx
-├── docs/                    # Context Diagram, DFD, ER, Use Case, Data Dictionary
 ├── prototype/               # Mock data เดิม (reference)
 ├── tools/figma-import/      # Design tokens + script นำเข้า Figma
 └── PROJECT_CONTEXT.md       # Source of Truth ในการพัฒนา
