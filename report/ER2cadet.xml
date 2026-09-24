@@ -1,0 +1,210 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="NKFA-Repair-ERD" name="ERD Systems Analysis and Design">
+    <mxGraphModel dx="2400" dy="1007" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1A365D;" value="ER Diagram: ระบบแจ้งซ่อมอาคารนอน นักเรียนนายเรืออากาศ" vertex="1">
+          <mxGeometry height="40" width="700" x="450" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_user" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;showTile=0;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;fontSize=14;fontColor=#2B6CB0;rounded=1;" value="User&#xa;(ผู้ใช้งาน / ผู้แจ้ง)" vertex="1">
+          <mxGeometry height="210" width="220" x="150" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="u_pk" parent="ent_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=1;" value="PK  user_id" vertex="1">
+          <mxGeometry height="25" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u_1" parent="ent_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      name" vertex="1">
+          <mxGeometry height="25" width="220" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="u_2" parent="ent_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      rank" vertex="1">
+          <mxGeometry height="25" width="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="u_3" parent="ent_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      email" vertex="1">
+          <mxGeometry height="25" width="220" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="u_4" parent="ent_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      username" vertex="1">
+          <mxGeometry height="25" width="220" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="u_5" parent="ent_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      password" vertex="1">
+          <mxGeometry height="25" width="220" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="u_6" parent="ent_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      role" vertex="1">
+          <mxGeometry height="25" width="220" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_building" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;showTile=0;fillColor=#EDF2F7;strokeColor=#4A5568;fontStyle=1;fontSize=14;fontColor=#2D3748;rounded=1;" value="Building&#xa;(อาคารนอน)" vertex="1">
+          <mxGeometry height="110" width="220" x="150" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="b_pk" parent="ent_building" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=1;" value="PK  building_id" vertex="1">
+          <mxGeometry height="25" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b_1" parent="ent_building" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      building_name" vertex="1">
+          <mxGeometry height="25" width="220" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="b_2" parent="ent_building" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      description" vertex="1">
+          <mxGeometry height="25" width="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_room" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;showTile=0;fillColor=#EDF2F7;strokeColor=#4A5568;fontStyle=1;fontSize=14;fontColor=#2D3748;rounded=1;" value="Room&#xa;(ห้องพัก)" vertex="1">
+          <mxGeometry height="135" width="220" x="150" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="r_pk" parent="ent_room" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=1;" value="PK  room_id" vertex="1">
+          <mxGeometry height="25" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r_fk" parent="ent_room" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  building_id" vertex="1">
+          <mxGeometry height="25" width="220" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="r_1" parent="ent_room" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      floor" vertex="1">
+          <mxGeometry height="25" width="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r_2" parent="ent_room" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      room_number" vertex="1">
+          <mxGeometry height="25" width="220" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_request" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;showTile=0;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;fontSize=14;fontColor=#744210;rounded=1;" value="RepairRequest&#xa;(รายการแจ้งซ่อม)" vertex="1">
+          <mxGeometry height="260" width="240" x="630" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="req_pk" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=1;" value="PK  request_id" vertex="1">
+          <mxGeometry height="25" width="240" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="req_fk1" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  user_id" vertex="1">
+          <mxGeometry height="25" width="240" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="req_fk2" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  room_id" vertex="1">
+          <mxGeometry height="25" width="240" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="req_fk3" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  status_id" vertex="1">
+          <mxGeometry height="25" width="240" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="req_1" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      problem_type" vertex="1">
+          <mxGeometry height="25" width="240" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="req_2" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      description" vertex="1">
+          <mxGeometry height="25" width="240" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="req_3" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      image" vertex="1">
+          <mxGeometry height="25" width="240" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="req_4" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      urgency" vertex="1">
+          <mxGeometry height="25" width="240" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="req_5" parent="ent_request" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      request_date" vertex="1">
+          <mxGeometry height="25" width="240" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_status" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;showTile=0;fillColor=#E2E8F0;strokeColor=#4A5568;fontStyle=1;fontSize=14;fontColor=#2D3748;rounded=1;" value="Status&#xa;(สถานะการแจ้งซ่อม)" vertex="1">
+          <mxGeometry height="110" width="220" x="1100" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s_pk" parent="ent_status" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=1;" value="PK  status_id" vertex="1">
+          <mxGeometry height="25" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="s_1" parent="ent_status" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      status_name" vertex="1">
+          <mxGeometry height="25" width="220" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="s_2" parent="ent_status" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      description" vertex="1">
+          <mxGeometry height="25" width="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_tech" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;showTile=0;fillColor=#E6FFFA;strokeColor=#319795;fontStyle=1;fontSize=14;fontColor=#234E52;rounded=1;" value="Technician&#xa;(ช่างซ่อม)" vertex="1">
+          <mxGeometry height="135" width="220" x="1100" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="t_pk" parent="ent_tech" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=1;" value="PK  technician_id" vertex="1">
+          <mxGeometry height="25" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="t_1" parent="ent_tech" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      name" vertex="1">
+          <mxGeometry height="25" width="220" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="t_2" parent="ent_tech" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      specialty" vertex="1">
+          <mxGeometry height="25" width="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t_3" parent="ent_tech" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      phone" vertex="1">
+          <mxGeometry height="25" width="220" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_repair" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;showTile=0;fillColor=#FEEBC8;strokeColor=#DD6B20;fontStyle=1;fontSize=14;fontColor=#7B341E;rounded=1;" value="Repair&#xa;(บันทึกการดำเนินการซ่อม)" vertex="1">
+          <mxGeometry height="210" width="240" x="630" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="rep_pk" parent="ent_repair" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=1;" value="PK  repair_id" vertex="1">
+          <mxGeometry height="25" width="240" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rep_fk1" parent="ent_repair" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  request_id" vertex="1">
+          <mxGeometry height="25" width="240" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="rep_fk2" parent="ent_repair" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  technician_id" vertex="1">
+          <mxGeometry height="25" width="240" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rep_1" parent="ent_repair" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      repair_detail" vertex="1">
+          <mxGeometry height="25" width="240" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="rep_2" parent="ent_repair" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      repair_date" vertex="1">
+          <mxGeometry height="25" width="240" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="rep_3" parent="ent_repair" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      completion_date" vertex="1">
+          <mxGeometry height="25" width="240" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="rep_4" parent="ent_repair" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      repair_result" vertex="1">
+          <mxGeometry height="25" width="240" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_expense" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;showTile=0;fillColor=#FFF5F5;strokeColor=#E53E3E;fontStyle=1;fontSize=14;fontColor=#9B2C2C;rounded=1;" value="Expense&#xa;(ค่าใช้จ่ายในการซ่อม)" vertex="1">
+          <mxGeometry height="210" width="220" x="1100" y="475" as="geometry" />
+        </mxCell>
+        <mxCell id="exp_pk" parent="ent_expense" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=1;" value="PK  expense_id" vertex="1">
+          <mxGeometry height="25" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="exp_fk" parent="ent_expense" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  repair_id" vertex="1">
+          <mxGeometry height="25" width="220" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="exp_1" parent="ent_expense" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      item_name" vertex="1">
+          <mxGeometry height="25" width="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="exp_2" parent="ent_expense" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      quantity" vertex="1">
+          <mxGeometry height="25" width="220" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="exp_3" parent="ent_expense" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      unit_price" vertex="1">
+          <mxGeometry height="25" width="220" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="exp_4" parent="ent_expense" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      labor_cost" vertex="1">
+          <mxGeometry height="25" width="220" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="exp_5" parent="ent_expense" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;" value="      other_cost" vertex="1">
+          <mxGeometry height="25" width="220" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_req" edge="1" parent="1" source="ent_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;startSize=8;endArrow=ERmany;endSize=8;strokeColor=#2B6CB0;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="ent_request" value="creates (สร้าง)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="225" />
+              <mxPoint x="500" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_bld_room" edge="1" parent="1" source="ent_building" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;startSize=8;endArrow=ERmany;endSize=8;strokeColor=#4A5568;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="ent_room" value="contains (ประกอบด้วย)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_room_req" edge="1" parent="1" source="ent_room" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;startSize=8;endArrow=ERmany;endSize=8;strokeColor=#4A5568;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="ent_request" value="located in (เกิดขึ้นที่)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="668" />
+              <mxPoint x="500" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_status_req" edge="1" parent="1" source="ent_status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;startSize=8;endArrow=ERmany;endSize=8;strokeColor=#4A5568;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="ent_request" value="has status (มีสถานะ)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="215" />
+              <mxPoint x="980" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_req_repair" edge="1" parent="1" source="ent_request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;startSize=8;endArrow=ERmandOne;endSize=8;strokeColor=#D69E2E;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="ent_repair" value="processed into (ดำเนินการ)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_tech_repair" edge="1" parent="1" source="ent_tech" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;startSize=8;endArrow=ERmany;endSize=8;strokeColor=#319795;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="ent_repair" value="assigned to (รับผิดชอบ)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_repair_exp" edge="1" parent="1" source="ent_repair" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;startSize=8;endArrow=ERmany;endSize=8;strokeColor=#DD6B20;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="ent_expense" value="incurs (มีค่าใช้จ่าย)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="865" />
+              <mxPoint x="980" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

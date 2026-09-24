@@ -1,0 +1,20 @@
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Figma MCP / personal config (ห้ามส่ง token ขึ้น repo)
+tools/figma-import/config.json
+
+# Test harness (เครื่องเดียว)
+*.test.js
+
+# Logs
+*.log
+# Local docx backup (�͹���͡���)
+report/_backup_docx/
