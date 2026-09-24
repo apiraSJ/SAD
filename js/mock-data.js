@@ -16,7 +16,7 @@ const MOCK_DATA = {
     cadet: { label: 'นักเรียนนายเรืออากาศ', home: '/cadet/home' },
     admin: { label: 'ผู้ดูแลอาคาร',          home: '/admin/list' },
     tech:  { label: 'ช่าง',                  home: '/tech/jobs' },
-    exec:  { label: 'ผู้บริหาร',              home: '/exec/dashboard' }
+    exec:  { label: 'ผู้บังคับบัญชา',        home: '/exec/dashboard' }
   },
 
   statuses: [
