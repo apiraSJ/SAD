@@ -45,7 +45,9 @@ const MOCK_DATA = {
     ],
     admin: [
       { route: '/admin/list',   label: 'รายการแจ้งซ่อม', icon: '📋' },
-      { route: '/admin/list',   label: 'งานซ่อม',        icon: '🔧', query: { status: 'กำลังซ่อม' } }
+      { route: '/admin/list',   label: 'งานซ่อม',        icon: '🔧', query: { status: 'กำลังซ่อม' } },
+      { route: '/admin/report', label: 'ภาพรวม / รายงาน', icon: '📊' },
+      { route: '/admin/users',  label: 'ผู้ใช้และสิทธิ์',  icon: '👥' }
     ],
     tech: [
       { route: '/tech/jobs',    label: 'งานของฉัน',      icon: '🔧' },

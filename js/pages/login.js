@@ -5,8 +5,8 @@
 Pages['login'] = (function () {
   function render(root) {
     const home = MOCK_DATA.roleMeta;
-    const accountsList = Object.values(MOCK_DATA.accounts).map((a) =>
-      `<tr><td>${a.username}</td><td><code>1234</code></td><td>${home[a.role].label}</td></tr>`
+    const accountsList = SM.listUsers().map((a) =>
+      `<tr><td>${a.username}</td><td><code>${UI.esc(a.password)}</code></td><td>${home[a.role] ? home[a.role].label : a.role}</td></tr>`
     ).join('');
 
     root.innerHTML = `

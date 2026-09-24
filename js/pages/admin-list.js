@@ -1,9 +1,33 @@
 /**
  * Page: Admin Repair List
- * ตาราง(desktop)/การ์ด(mobile) + filter สถานะ + ค้นหา
+ * ตาราง(desktop)/การ์ด(mobile) + filter สถานะ + ค้นหา + ช่างผู้รับผิดชอบ
  */
 Pages['admin-list'] = (function () {
   const STATUSES = ['ทั้งหมด', 'รอตรวจสอบ', 'รับเรื่อง', 'กำลังซ่อม', 'ซ่อมเสร็จ'];
+
+  function techCell(r) {
+    if (r.assignedTechnician) return `<span class="chip chip-blue">👷 ${UI.esc(r.assignedTechnician)}</span>`;
+    if (r.status === 'รับเรื่อง' || r.status === 'รอตรวจสอบ') return `<span class="chip" style="background:#FEF3C7;color:#B45309">⏳ ยังไม่ได้มอบหมาย</span>`;
+    return '<span class="muted">—</span>';
+  }
+
+  function cardHtml(r) {
+    return UI.requestCard(r, `${techCell(r)}<span class="btn btn-outline btn-sm">เปิดดู →</span>`);
+  }
+
+  function tableRows(list) {
+    return list.map((r) => `
+      <tr data-id="${r.id}">
+        <td style="font-weight:700;color:var(--navy-900)">${r.id}</td>
+        <td>${UI.esc(r.reporter)}</td>
+        <td>${UI.esc(r.building)} · ชั้น ${UI.esc(r.floor)} · ห้อง ${UI.esc(r.room)}</td>
+        <td>${UI.esc(r.problemType)}</td>
+        <td>${UI.urgencyChip(r.urgency)}</td>
+        <td>${techCell(r)}</td>
+        <td>${UI.statusBadge(r.status)}</td>
+        <td style="font-size:12px;color:var(--gray-500)">${UI.esc(r.submittedAt)}</td>
+      </tr>`).join('');
+  }
 
   function render(root, params, user) {
     const current = params.status || (params.query && params.query.status) || 'ทั้งหมด';
@@ -16,21 +40,8 @@ Pages['admin-list'] = (function () {
       return `<a class="filter-pill ${s === current ? 'active' : ''}" href="${href}">${s} (${count})</a>`;
     }).join('');
 
-    const rows = filtered.map((r) => `
-      <tr data-id="${r.id}">
-        <td style="font-weight:700;color:var(--navy-900)">${r.id}</td>
-        <td>${UI.esc(r.reporter)}</td>
-        <td>${UI.esc(r.building)} · ชั้น ${UI.esc(r.floor)} · ห้อง ${UI.esc(r.room)}</td>
-        <td>${UI.esc(r.problemType)}</td>
-        <td>${UI.urgencyChip(r.urgency)}</td>
-        <td>${UI.statusBadge(r.status)}</td>
-        <td style="font-size:12px;color:var(--gray-500)">${UI.esc(r.submittedAt)}</td>
-      </tr>`).join('');
-
-    const cards = filtered.map((r) =>
-      UI.requestCard(r, `<span class="btn btn-outline btn-sm">เปิดดู →</span>`)
-    ).join('');
-
+    const rows = tableRows(filtered);
+    const cards = filtered.length ? filtered.map(cardHtml).join('') : UI.emptyState('🔍', 'ไม่พบรายการในสถานะนี้');
     const summary = SM.stats();
 
     root.innerHTML = `
@@ -44,14 +55,14 @@ Pages['admin-list'] = (function () {
 
       <div class="filter-pills">${pills}</div>
 
-      ${filtered.length === 0 ? UI.emptyState('🔍', 'ไม่พบรายการในสถานะนี้') : `
+      ${filtered.length === 0 ? cards : `
         <div class="rc-list">${cards}</div>
         <div class="table-wrap">
           <table class="data-table">
             <thead>
               <tr>
                 <th>เลขที่</th><th>ผู้แจ้ง</th><th>สถานที่</th><th>ประเภท</th>
-                <th>ความเร่งด่วน</th><th>สถานะ</th><th>วันที่</th>
+                <th>ความเร่งด่วน</th><th>ช่าง</th><th>สถานะ</th><th>วันที่</th>
               </tr>
             </thead>
             <tbody>${rows}</tbody>
@@ -66,23 +77,16 @@ Pages['admin-list'] = (function () {
         r.reporter.toLowerCase().includes(q) ||
         (r.building + r.room).toLowerCase().includes(q)
       );
-      const cardsHtml = pool.map((r) => UI.requestCard(r, `<span class="btn btn-outline btn-sm">เปิดดู →</span>`)).join('');
-      const rowsHtml = pool.map((r) => `
-        <tr data-id="${r.id}">
-          <td style="font-weight:700;color:var(--navy-900)">${r.id}</td>
-          <td>${UI.esc(r.reporter)}</td>
-          <td>${UI.esc(r.building)} · ชั้น ${UI.esc(r.floor)} · ห้อง ${UI.esc(r.room)}</td>
-          <td>${UI.esc(r.problemType)}</td>
-          <td>${UI.urgencyChip(r.urgency)}</td>
-          <td>${UI.statusBadge(r.status)}</td>
-          <td style="font-size:12px;color:var(--gray-500)">${UI.esc(r.submittedAt)}</td>
-        </tr>`).join('');
-      const emptyMobile = `<div class="empty-state" style="padding:20px">🔍 ไม่พบรายการที่ค้นหา</div>`;
-      const emptyDesktop = `<tr><td colspan="7"><div class="empty-state" style="padding:20px">🔍 ไม่พบรายการที่ค้นหา</div></td></tr>`;
+      const cardsHtml = pool.length
+        ? pool.map(cardHtml).join('')
+        : `<div class="empty-state" style="padding:20px">🔍 ไม่พบรายการที่ค้นหา</div>`;
+      const rowsHtml = pool.length
+        ? tableRows(pool)
+        : `<tr><td colspan="8"><div class="empty-state" style="padding:20px">🔍 ไม่พบรายการที่ค้นหา</div></td></tr>`;
       const rcList = root.querySelector('.rc-list');
       const tbody = root.querySelector('.data-table tbody');
-      if (rcList) rcList.innerHTML = pool.length ? cardsHtml : emptyMobile;
-      if (tbody) tbody.innerHTML = pool.length ? rowsHtml : emptyDesktop;
+      if (rcList) rcList.innerHTML = cardsHtml;
+      if (tbody) tbody.innerHTML = rowsHtml;
       bindRows(root);
     });
 

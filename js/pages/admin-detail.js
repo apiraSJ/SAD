@@ -72,8 +72,17 @@ Pages['admin-detail'] = (function () {
       </div>`;
   }
 
+  function techOptions(current) {
+    const fromList = MOCK_DATA.technicians.map((t) => t.name);
+    const fromUsers = (SM.listUsers() || [])
+      .filter((u) => u.role === 'tech')
+      .map((u) => u.name);
+    const names = Array.from(new Set(fromList.concat(fromUsers))).filter(Boolean);
+    return names.map((n) => `<option value="${n}" ${n === current ? 'selected' : ''}>${UI.esc(n)}</option>`).join('');
+  }
+
   function renderActions(r, user) {
-    const opts = MOCK_DATA.technicians.map((t) => `<option value="${t.name}">${UI.esc(t.name)} (${UI.esc(t.specialty)})</option>`).join('');
+    const opts = techOptions();
 
     if (r.status === 'รอตรวจสอบ') {
       return UI.actionPanel('ดำเนินการรับเรื่อง', `
@@ -84,18 +93,23 @@ Pages['admin-detail'] = (function () {
 
     if (r.status === 'รับเรื่อง') {
       const assigned = r.assignedTechnician;
-      return UI.actionPanel('มอบหมายช่าง', `
+      const opts = techOptions(assigned);
+      const selectHtml = `
+        <div class="field">
+          <label for="tech-select">เลือกช่าง *</label>
+          <select class="select" id="tech-select"><option value="">— เลือกช่าง —</option>${opts}</select>
+          <div class="field-error">กรุณาเลือกช่างก่อนยืนยัน</div>
+        </div>`;
+      return UI.actionPanel(assigned ? 'เปลี่ยนช่างผู้รับผิดชอบ' : 'มอบหมายช่าง', `
         ${assigned ? `
           <div class="detail-item mb-3">
-            <div class="dt-label">ช่างที่มอบหมายแล้ว</div>
-            <div class="dt-value">${UI.esc(assigned)}</div>
-          </div>` : `
-          <div class="field">
-            <label for="tech-select">เลือกช่าง *</label>
-            <select class="select" id="tech-select"><option value="">— เลือกช่าง —</option>${opts}</select>
-            <div class="field-error">กรุณาเลือกช่างก่อนยืนยัน</div>
+            <div class="dt-label">ช่างที่มอบหมายปัจจุบัน</div>
+            <div class="dt-value"><span class="chip chip-blue">👷 ${UI.esc(assigned)}</span></div>
           </div>
-          <button class="btn btn-primary btn-block" id="btn-assign">ยืนยันการมอบหมาย</button>`}
+          <p class="muted" style="font-size:12px;margin-bottom:12px">งานยังไม่เริ่มดำเนินการ คุณสามารถเปลี่ยนช่างได้</p>` : `
+          <p class="muted" style="font-size:13px;margin-bottom:16px">เลือกช่างเพื่อส่งงานให้รับผิดชอบ</p>`}
+        ${selectHtml}
+        <button class="btn btn-primary btn-block" id="btn-assign">${assigned ? 'ยืนยันการเปลี่ยนช่าง' : 'ยืนยันการมอบหมาย'}</button>
         <p class="field-hint mt-2" style="font-size:12px">เมื่อมอบหมายแล้ว ช่างจะเห็นงานในระบบทันที</p>
       `, !assigned);
     }

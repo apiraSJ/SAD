@@ -8,9 +8,10 @@ Pages['cadet-form'] = (function () {
   function render(root, params, user) {
     photoData = null;
 
-    const buildings = MOCK_DATA.buildings.map((b) => `<option value="${b}">${b}</option>`).join('');
-    const floors = MOCK_DATA.floors.map((f) => `<option value="${f}">ชั้น ${f}</option>`).join('');
-    const types = MOCK_DATA.problemTypes.map((t) => `<option value="${t}">${t}</option>`).join('');
+    const s = SM.settings();
+    const buildings = s.buildings.map((b) => `<option value="${b}">${b}</option>`).join('');
+    const floors = s.floors.map((f) => `<option value="${f}">ชั้น ${f}</option>`).join('');
+    const types = s.problemTypes.map((t) => `<option value="${t}">${t}</option>`).join('');
     const buildOpts = `<option value="">— เลือกอาคาร —</option>${buildings}`;
     const floorOpts = `<option value="">— เลือกชั้น —</option>${floors}`;
     const typeOpts = `<option value="">— เลือกประเภท —</option>${types}`;

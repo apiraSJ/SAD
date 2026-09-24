@@ -12,6 +12,8 @@ const App = (function () {
     { pattern: '/admin/list',           page: 'admin-list',     roles: ['admin'], title: 'รายการแจ้งซ่อม' },
     { pattern: '/admin/list/:status',   page: 'admin-list',     roles: ['admin'], title: 'รายการแจ้งซ่อม' },
     { pattern: '/admin/detail/:id',     page: 'admin-detail',   roles: ['admin'], title: 'รายละเอียดคำขอ' },
+    { pattern: '/admin/report',         page: 'admin-report',   roles: ['admin'], title: 'ภาพรวม / รายงาน' },
+    { pattern: '/admin/users',          page: 'admin-users',    roles: ['admin'], title: 'ผู้ใช้และสิทธิ์' },
     { pattern: '/tech/jobs',            page: 'tech-jobs',      roles: ['tech'],  title: 'งานของฉัน' },
     { pattern: '/tech/jobs/:status',    page: 'tech-jobs',      roles: ['tech'],  title: 'งานของฉัน' },
     { pattern: '/tech/result/:id',      page: 'tech-result',    roles: ['tech'],  title: 'รายละเอียดงาน' },
@@ -99,7 +101,7 @@ const App = (function () {
 
     document.getElementById('page').innerHTML = '';
     page.render(document.getElementById('page'), Object.assign({}, params, { query }), user);
-    if (page.bind) page.bind(document.getElementById('page'));
+    if (page.bind) page.bind(document.getElementById('page'), Object.assign({}, params, { query }), user);
     document.title = route.title + ' · ระบบแจ้งซ่อมอาคารนอน';
   }
 
