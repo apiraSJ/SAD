@@ -21,8 +21,11 @@ Interactive Prototype (Web Application, Mobile-first, Responsive) สำหร�
 บน `localStorage` (ไม่มีการเชื่อมต่อ Backend จริง)
 
 ## วิธีเปิดใช้งาน
-
+ดาวน์โหลดไฟล์โครงการจาก GitHub และเปิดไฟล์ index.html ด้วยเว็บ เบราว์เซอร์ 
 เปิดไฟล์ `index.html` ด้วย Web Browser (Chrome / Edge / Firefox รุ่นใหม่)
+หรือ
+หรือเข้าถึง Interactive Prototype ผ่าน GitHub Pages
+ทดลองใช้งานที่นี้: https://apirasj.github.io/SAD
 
 ## บัญชีทดสอบ
 
