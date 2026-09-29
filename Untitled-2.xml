@@ -1,0 +1,217 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0" compressed="false">
+  <diagram id="repair-schema-erd" name="Repair System ERD">
+    <mxGraphModel dx="1716" dy="911" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=22;fontStyle=1;fontColor=#1A365D;" value="Repair Request System ERD" vertex="1">
+          <mxGeometry height="40" width="600" x="500" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="users" parent="1" style="swimlane;html=1;horizontal=1;startSize=32;childLayout=stackLayout;horizontalStack=0;rounded=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;fontSize=14;fontColor=#2B6CB0;" value="Users&#xa;ผู้ใช้งาน / ช่าง" vertex="1">
+          <mxGeometry height="260" width="250" x="170" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="users_user_id" parent="users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=1;" value="PK  user_id" vertex="1">
+          <mxGeometry height="25" width="250" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="users_username" parent="users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      username  UQ" vertex="1">
+          <mxGeometry height="25" width="250" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="users_password" parent="users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      password" vertex="1">
+          <mxGeometry height="25" width="250" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="users_full_name" parent="users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      full_name" vertex="1">
+          <mxGeometry height="25" width="250" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="users_rank" parent="users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      rank" vertex="1">
+          <mxGeometry height="25" width="250" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="users_phone" parent="users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      phone" vertex="1">
+          <mxGeometry height="25" width="250" y="157" as="geometry" />
+        </mxCell>
+        <mxCell id="users_role" parent="users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      role" vertex="1">
+          <mxGeometry height="25" width="250" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="users_specialty" parent="users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      specialty" vertex="1">
+          <mxGeometry height="25" width="250" y="207" as="geometry" />
+        </mxCell>
+        <mxCell id="buildings" parent="1" style="swimlane;html=1;horizontal=1;startSize=32;childLayout=stackLayout;horizontalStack=0;rounded=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;fontSize=14;fontColor=#276749;" value="Buildings&#xa;อาคาร" vertex="1">
+          <mxGeometry height="135" width="250" x="180" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="buildings_building_id" parent="buildings" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=1;" value="PK  building_id" vertex="1">
+          <mxGeometry height="25" width="250" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="buildings_building_name" parent="buildings" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      building_name" vertex="1">
+          <mxGeometry height="25" width="250" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="buildings_description" parent="buildings" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      description" vertex="1">
+          <mxGeometry height="25" width="250" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="rooms" parent="1" style="swimlane;html=1;horizontal=1;startSize=32;childLayout=stackLayout;horizontalStack=0;rounded=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;fontSize=14;fontColor=#276749;" value="Rooms&#xa;ห้องพัก" vertex="1">
+          <mxGeometry height="160" width="250" x="180" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="rooms_room_id" parent="rooms" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=1;" value="PK  room_id" vertex="1">
+          <mxGeometry height="25" width="250" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="rooms_building_id" parent="rooms" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  building_id" vertex="1">
+          <mxGeometry height="25" width="250" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="rooms_floor" parent="rooms" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      floor" vertex="1">
+          <mxGeometry height="25" width="250" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="rooms_room_number" parent="rooms" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      room_number" vertex="1">
+          <mxGeometry height="25" width="250" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="repair_requests" parent="1" style="swimlane;html=1;horizontal=1;startSize=32;childLayout=stackLayout;horizontalStack=0;rounded=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;fontSize=14;fontColor=#744210;" value="Repair Requests&#xa;คำขอแจ้งซ่อม" vertex="1">
+          <mxGeometry height="310" width="290" x="500" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_request_id" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=1;" value="PK  request_id" vertex="1">
+          <mxGeometry height="25" width="290" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_user_id" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  user_id" vertex="1">
+          <mxGeometry height="25" width="290" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_room_id" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  room_id" vertex="1">
+          <mxGeometry height="25" width="290" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_issue_type" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      issue_type" vertex="1">
+          <mxGeometry height="25" width="290" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_description" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      description" vertex="1">
+          <mxGeometry height="25" width="290" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_image_url" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      image_url" vertex="1">
+          <mxGeometry height="25" width="290" y="157" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_urgency" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      urgency" vertex="1">
+          <mxGeometry height="25" width="290" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_status" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      status" vertex="1">
+          <mxGeometry height="25" width="290" y="207" as="geometry" />
+        </mxCell>
+        <mxCell id="requests_created_at" parent="repair_requests" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      created_at" vertex="1">
+          <mxGeometry height="25" width="290" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="repairs" parent="1" style="swimlane;html=1;horizontal=1;startSize=32;childLayout=stackLayout;horizontalStack=0;rounded=1;fillColor=#FEEBC8;strokeColor=#DD6B20;fontStyle=1;fontSize=14;fontColor=#7B341E;" value="Repairs&#xa;รายการซ่อม" vertex="1">
+          <mxGeometry height="260" width="290" x="930" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="repairs_repair_id" parent="repairs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=1;" value="PK  repair_id" vertex="1">
+          <mxGeometry height="25" width="290" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="repairs_request_id" parent="repairs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  request_id  UQ" vertex="1">
+          <mxGeometry height="25" width="290" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="repairs_technician_id" parent="repairs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  technician_id" vertex="1">
+          <mxGeometry height="25" width="290" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="repairs_details" parent="repairs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      details" vertex="1">
+          <mxGeometry height="25" width="290" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="repairs_started_at" parent="repairs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      started_at" vertex="1">
+          <mxGeometry height="25" width="290" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="repairs_completed_at" parent="repairs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      completed_at" vertex="1">
+          <mxGeometry height="25" width="290" y="157" as="geometry" />
+        </mxCell>
+        <mxCell id="repairs_result" parent="repairs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      result" vertex="1">
+          <mxGeometry height="25" width="290" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="expenses" parent="1" style="swimlane;html=1;horizontal=1;startSize=32;childLayout=stackLayout;horizontalStack=0;rounded=1;fillColor=#FFF5F5;strokeColor=#E53E3E;fontStyle=1;fontSize=14;fontColor=#9B2C2C;" value="Expenses&#xa;ค่าใช้จ่าย" vertex="1">
+          <mxGeometry height="235" width="290" x="870" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="expenses_expense_id" parent="expenses" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=1;" value="PK  expense_id" vertex="1">
+          <mxGeometry height="25" width="290" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="expenses_repair_id" parent="expenses" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;fontStyle=2;fontColor=#718096;" value="FK  repair_id" vertex="1">
+          <mxGeometry height="25" width="290" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="expenses_item_name" parent="expenses" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      item_name" vertex="1">
+          <mxGeometry height="25" width="290" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="expenses_quantity" parent="expenses" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      quantity" vertex="1">
+          <mxGeometry height="25" width="290" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="expenses_unit_price" parent="expenses" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      unit_price" vertex="1">
+          <mxGeometry height="25" width="290" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="expenses_labor_cost" parent="expenses" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      labor_cost" vertex="1">
+          <mxGeometry height="25" width="290" y="157" as="geometry" />
+        </mxCell>
+        <mxCell id="expenses_other_cost" parent="expenses" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=10;" value="      other_cost" vertex="1">
+          <mxGeometry height="25" width="290" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_users_requests" edge="1" parent="1" source="users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;endSize=8;startArrow=ERmandOne;startSize=8;strokeColor=#3182CE;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="repair_requests" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_buildings_rooms" edge="1" parent="1" source="buildings" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;endSize=8;startArrow=ERmandOne;startSize=8;strokeColor=#38A169;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="rooms" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_rooms_requests" edge="1" parent="1" source="rooms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;endSize=8;startArrow=ERmandOne;startSize=8;strokeColor=#38A169;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="repair_requests" value="1 : N">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="750" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_requests_repairs" edge="1" parent="1" source="repair_requests" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmandOne;endSize=8;startArrow=ERmandOne;startSize=8;strokeColor=#D69E2E;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="repairs" value="1 : 1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_users_repairs" edge="1" parent="1" source="users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;endSize=8;startArrow=ERmandOne;startSize=8;strokeColor=#3182CE;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="repairs" value="1 : N&#xa;(technician)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1010" y="200.07" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_repairs_expenses" edge="1" parent="1" source="repairs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;endSize=8;startArrow=ERmandOne;startSize=8;strokeColor=#DD6B20;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="expenses" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_LXIMNuPB6USz3PljuzL-3" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="Status" vertex="1">
+          <mxGeometry height="120" width="160" x="540" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="_LXIMNuPB6USz3PljuzL-4" parent="_LXIMNuPB6USz3PljuzL-3" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="PK status_id&lt;br&gt;status_name&lt;br&gt;description&amp;nbsp;" vertex="1">
+          <mxGeometry height="90" width="160" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_LXIMNuPB6USz3PljuzL-5" edge="1" parent="1" source="_LXIMNuPB6USz3PljuzL-3" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;exitX=0.478;exitY=0.012;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <Array as="points">
+              <mxPoint x="686.52" y="780" />
+              <mxPoint x="685" y="780" />
+              <mxPoint x="685" y="750" />
+              <mxPoint x="730" y="750" />
+              <mxPoint x="730" y="670" />
+              <mxPoint x="690" y="670" />
+            </Array>
+            <mxPoint x="685" y="840" as="sourcePoint" />
+            <mxPoint x="690" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_LXIMNuPB6USz3PljuzL-6" connectable="0" parent="_LXIMNuPB6USz3PljuzL-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1:N" vertex="1">
+          <mxGeometry relative="1" x="0.2652" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_LXIMNuPB6USz3PljuzL-9" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="Technician" vertex="1">
+          <mxGeometry height="120" width="160" x="1040" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="_LXIMNuPB6USz3PljuzL-10" parent="_LXIMNuPB6USz3PljuzL-9" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="PK t&lt;span style=&quot;font-size: 14px; text-align: center;&quot;&gt;echnician&lt;/span&gt;_id&lt;br&gt;name&lt;br&gt;special&lt;br&gt;phone" vertex="1">
+          <mxGeometry height="90" width="160" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_LXIMNuPB6USz3PljuzL-11" edge="1" parent="1" source="_LXIMNuPB6USz3PljuzL-10" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="repairs_details" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <Array as="points">
+              <mxPoint x="1280" y="155.03" />
+              <mxPoint x="1280" y="379.52" />
+            </Array>
+            <mxPoint x="1160" y="421" as="sourcePoint" />
+            <mxPoint x="1234" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_LXIMNuPB6USz3PljuzL-12" connectable="0" parent="_LXIMNuPB6USz3PljuzL-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1:N" vertex="1">
+          <mxGeometry relative="1" x="0.2652" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
